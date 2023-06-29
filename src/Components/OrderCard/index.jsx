@@ -6,6 +6,7 @@ const OrderCard = props => {
 		title,
 		imageURL,
 		price,
+		handleDelete
 	} = props;
 
 	return (
@@ -18,7 +19,7 @@ const OrderCard = props => {
 			</div>
 			<div className="flex items-center gap-2">
 				<p className="text-lg font-medium">${price}</p>
-				<XMarkIcon className="h-6 w-6 text-black cursor-pointer" />
+				<XMarkIcon onClick={() => handleDelete(id)} className="h-6 w-6 text-black cursor-pointer" />
 			</div>
 		</div>
 	)
