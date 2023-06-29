@@ -18,6 +18,11 @@ const AppRoutes = () => {
     { path: '/my-order', element: <MyOrder /> },
     { path: '/my-orders/:id', element: <MyOrder /> },
     { path: '/my-account', element: <MyAccount /> },
+    { path: '/anko', element: <Home /> },
+    { path: '/ice-cream', element: <Home /> },
+    { path: '/creams', element: <Home /> },
+    { path: '/nuts-and-seeds', element: <Home /> },
+    { path: '/fruits', element: <Home /> },
     { path: '/*', element: <NotFound /> },
     { path: '/sign-in', element: <SignIn /> },
   ]);
