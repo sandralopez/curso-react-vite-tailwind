@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
+import { useLocalStorage } from '../CustomHooks/useLocalStorage'
 
 const ShoppingCartContext = createContext()
 
@@ -74,6 +75,22 @@ const ShoppingCartProvider = ({children}) => {
 		if (searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchByTitle, searchByCategory))
 	}, [items, searchByTitle, searchByCategory]);
 
+	// User
+	const [user, saveUser] = useLocalStorage('user-account', {});
+	const [signOut, saveSignOut] = useLocalStorage('sign-out', true);
+
+	const signInUser = () => {
+		saveSignOut(false);
+	}
+
+	const signOutUser = () => {
+		saveSignOut(true);
+	}
+
+	const getUserData = () => {
+		return user;
+	}
+
 	return (
 		<ShoppingCartContext.Provider value={{
 			count,
@@ -81,7 +98,7 @@ const ShoppingCartProvider = ({children}) => {
 			isProductDetailOpen,
 			openProductDetail,
 			closeProductDetail,
-			productToShow,
+			productToShow, 
 			setProductToShow,
 			cartProducts,
 			setCartProducts,
@@ -97,7 +114,12 @@ const ShoppingCartProvider = ({children}) => {
 			filteredItems,
 			searchByCategory,
 			setSearchByCategory,
-
+			user,
+			saveUser,
+			signOut,
+			getUserData,
+			signOutUser,
+			signInUser
 		}}>
 			{children}
 		</ShoppingCartContext.Provider>

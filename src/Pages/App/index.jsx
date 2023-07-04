@@ -8,7 +8,6 @@ import { NotFound } from '../NotFound'
 import { SignIn } from '../SignIn'
 import { Navbar } from '../../Components/Navbar'
 import { CheckoutSideMenu } from'../../Components/CheckoutSideMenu'
-import './App.css'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -17,13 +16,13 @@ const AppRoutes = () => {
     { path: '/my-orders/last', element: <MyOrder /> },
     { path: '/my-order', element: <MyOrder /> },
     { path: '/my-orders/:id', element: <MyOrder /> },
-    { path: '/my-account', element: <MyAccount /> },
     { path: '/anko', element: <Home /> },
     { path: '/ice-cream', element: <Home /> },
     { path: '/creams', element: <Home /> },
     { path: '/nuts-and-seeds', element: <Home /> },
     { path: '/fruits', element: <Home /> },
     { path: '/*', element: <NotFound /> },
+    { path: '/my-account', element: <MyAccount /> },
     { path: '/sign-in', element: <SignIn /> },
   ]);
 
